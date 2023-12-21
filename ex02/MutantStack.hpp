@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <stack>
+#include <algorithm>
+#include <iterator>
 
 template <typename T>
 class MutantStack : public std::stack<T>

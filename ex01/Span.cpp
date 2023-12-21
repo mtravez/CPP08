@@ -32,10 +32,15 @@ void Span::addNumber(int n) {
 	list.push_back(n);
 }
 
+bool is_sorted(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	return std::adjacent_find(begin, end, std::greater<int>()) == end;
+}
+
 int Span::longestSpan() {
 	if (list.empty() || list.size() <= 1)
 		throw (NotEnoughNumbersException());
-	if (!std::is_sorted(list.begin(), list.end()))
+	if (!is_sorted(list.begin(), list.end()))
 		std::sort(list.begin(), list.end());
 	return (list.back() - list.front());
 }
@@ -43,7 +48,7 @@ int Span::longestSpan() {
 int Span::shortestSpan() {
 	if (list.empty() || list.size() <= 1)
 		throw (NotEnoughNumbersException());
-	if (!std::is_sorted(list.begin(), list.end()))
+	if (!is_sorted(list.begin(), list.end()))
 		std::sort(list.begin(), list.end());
 	int span = std::numeric_limits<int>::max();
 	int lastNr = 0;
