@@ -101,6 +101,7 @@ int main()
 
 	std::cout << "Stack size: " << ms.size() << std::endl;
 	ms.pop();
+	std::cout << "Stack size: " << ms.size() << std::endl;
 	std::reverse(ms.begin(), ms.end());
 	it = ms.begin();
 
